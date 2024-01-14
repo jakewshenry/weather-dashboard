@@ -14,11 +14,9 @@ This week’s challenge is to create a dynamic weather dashboard allowing users 
 
 ## User Story
 
-```text
 AS A traveler
 I WANT to see the weather outlook for multiple cities
 SO THAT I can plan a trip accordingly
-```
 
 ## Acceptance Criteria
 
