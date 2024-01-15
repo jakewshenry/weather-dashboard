@@ -56,6 +56,10 @@ MDN Local Storage - https://developer.mozilla.org/en-US/docs/Web/API/Window/loca
 
 5 Day Weather Forecast API - https://openweathermap.org/forecast5
 
+Font Awesome Icons - https://fontawesome.com/icons/bootstrap?f=brands&s=solid
+
+J Query - https://jquery.com/
+
 ## License
 
 This project is licensed under the MIT License.
