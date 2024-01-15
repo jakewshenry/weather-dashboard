@@ -60,6 +60,8 @@ Font Awesome Icons - https://fontawesome.com/icons/bootstrap?f=brands&s=solid
 
 J Query - https://jquery.com/
 
+MDN Fetch API - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
 ## License
 
 This project is licensed under the MIT License.
