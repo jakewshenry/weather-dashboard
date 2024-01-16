@@ -38,9 +38,9 @@ SO THAT I can plan a trip accordingly
 
 ## Usage
 
-Link to deployed application - 
+Link to deployed application - https://jakewshenry.github.io/weather-dashboard/
 
- ![Screenshot of application](./)
+ ![Screenshot of application](./assets/images/SS1.png)
 
 ## Credits
 
