@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var forecastEl = $("#forecast");
 
+    var historyEl = $("#history");
+
     // Constructing a URL to search Giphy for the name of the person who said the quote
     const APIKey = '562f06234e59142d045a8afd6ab8c553';
 
@@ -36,6 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             todayEl.append(forecastHeader, forecastTemp, forecastWind, forecastHumidity);
 
+            var predictedHeader = $(`<h3 id="forecast-heading" class="mt-1 h3">5-Day Forecast</h3>`)
+
+            forecastEl.append(predictedHeader);
+
             for(var i = 1; i < 6; i++){
                 var dayInt = i * 8 - 1;
                 var predictedWeather = data.list[dayInt];
@@ -57,6 +63,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     };
 
+    var historyList = $(`<ul class='list-group' id='searchHistoryList'></ul>`);
+
+    historyEl.append(historyList);
+
+    var searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+
+    var recentHistory = searchHistory.slice(-5);
+
+    recentHistory.forEach((cityName) => {
+        createBtn(cityName);
+
+    });
+
+    function createBtn(cityName){
+        var newBtn = $(`<li class='list-group-item'>${cityName}</li>`);
+
+        historyList.append(newBtn);
+    }
+    
     $("#search-button").on("click", function (event) {
 
         event.preventDefault();
@@ -64,5 +89,19 @@ document.addEventListener('DOMContentLoaded', function () {
         const searchInput = $("#search-input").val().trim();
 
         fetchWeather(searchInput);
+
+        createBtn(searchInput);
+
+        var searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+
+		// Add current score to array
+		searchHistory.push(searchInput);
+	  
+		// Save updated scores array back to local storage
+		localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
     });
-})
+
+    historyEl.on("click", '.list-group-item', function () {
+        fetchWeather($(this).text());
+    });
+});
